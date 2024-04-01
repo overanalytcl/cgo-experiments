@@ -11,6 +11,7 @@ I could've made it a bit more complex, such as including a header, but that's wh
 ----
 cd src/sum
 go build
+./sum
 ----
 
 NOTE: For this specific example, you could do `go build main.go` as well, but in later examples you can't do that because you have to also link headers and `go build main.go` is concerned only with the actual Go file, while `go build` builds the entire project.
