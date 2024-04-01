@@ -1,0 +1,17 @@
+= Sum
+:toc: auto
+
+== Description
+Sum-Go is an example of a function exported from Go (`func sum(a int, b int)`) and a function defined in C (`int print_sum(int, int)`). It shows how one could talk between Go and C (at least when it comes to simple functions). 
+
+NOTE: I had to split it into a header and a source file because you can't have both definitions and `//export` in a Go file, because you'll get an error regarding multiple definitions. It is, in my opinion, a better practice anyway.
+
+== How to run it?
+[source,shell]
+----
+cd src/sum-go
+go build
+./main
+----
+
+IMPORTANT: You _have_ to do `go build` here, since otherwise you'll get an undefined reference to `print_sum`. Of course, you can leave the .c file out if you're defining `print_sum` yourself, either within the header file (which would be unusual, even in C) or (more likely) from within Go. Oftentimes you'll deal with just headers anyway, but there will be plenty of times when you have to call methods from C in Go.
